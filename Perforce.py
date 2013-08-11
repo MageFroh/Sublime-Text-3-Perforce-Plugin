@@ -48,7 +48,7 @@ def getPerforceConfigFromPreferences(command):
     # if it does, then add it to the command in the form "var=value command"
     # so that they get inserted into the environment the command runs in
     def addP4Var(command, var):
-        p4var = perforce_settings.get(var)
+        p4var = sublime.active_window().active_view().settings().get(var, perforce_settings.get(var))
         if p4var:
             if sublime.platform() == "windows":
                 return "SET " + var + "=" + p4var + "&& " + command
