@@ -37,7 +37,7 @@ def ConstructCommand(in_command):
     if(sublime.platform() == "osx"):
         command = 'source ~/.bash_profile && '
     # Revert change until threading is fixed
-    # command = getPerforceConfigFromPreferences(command)
+    command = getPerforceConfigFromPreferences(command)
     command += in_command
     return command
 
