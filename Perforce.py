@@ -51,7 +51,7 @@ def getPerforceConfigFromPreferences(command):
         p4var = perforce_settings.get(var)
         if p4var:
             if sublime.platform() == "windows":
-                return "SET " + var + "=" + p4var + " && " + command
+                return "SET " + var + "=" + p4var + "&& " + command
             return var + "=" + p4var + " " + command
         return command
     command = addP4Var(command, "P4PORT")
